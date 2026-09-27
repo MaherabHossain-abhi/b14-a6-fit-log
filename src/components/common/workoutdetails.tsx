@@ -10,7 +10,7 @@ interface WorkoutDetailsProp {
 const WorkoutDetails = ({ workout }: WorkoutDetailsProp) => {
     return (
         <div className="flex justify-center items-center container mx-auto max-w-280">
-         <div className="card gap-6 lg:card-side shadow-sm items-start p-4 md:p-0">
+            <div className="card gap-6 lg:card-side shadow-sm items-start p-4 md:p-0">
                 <figure>
                     <Image className='w-180 h-auto'
                         src={workout.image}
@@ -90,16 +90,16 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProp) => {
                     </ol>
                     <div className="mt-3 flex flex-col gap-3 sm:flex-row">
 
-    <TodayButton workout={workout} />
+                        <TodayButton workout={workout} />
 
-     <SaveButtonPage workout={workout}/>
+                        <SaveButtonPage workout={workout} />
 
                     </div>
                 </div>
             </div>
         </div>
 
-  );
+    );
 };
 
 
