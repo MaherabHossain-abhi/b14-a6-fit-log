@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathName = usePathname();
     const links = <>
-        <li className='text-gray-300 '><Link className={`rounded-3xl md:px-3 md:py-2 ${pathName === '/workouts' ? 'text-[#ccff00] md:bg-[#3c4226] ' : ''}`} href={'/workouts'}>Workouts</Link></li>
+        <li className='text-gray-300 '><Link className={`rounded-3xl md:px-3 md:py-2 ${pathName === '/' ? 'text-[#ccff00] md:bg-[#3c4226] ' : ''}`} href={'/'}>Workouts</Link></li>
         <li className='text-gray-300 '><Link className={`rounded-3xl md:px-3 md:py-2 ${pathName === '/my-plan' ? 'text-[#ccff00]  md:bg-[#3c4226] ' : ''}`} href={'/my-plan'}>My Plan</Link></li>
 
     </>

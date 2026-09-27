@@ -1,5 +1,6 @@
 import { IWorkout } from './workouttype';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaRegClock, FaRegStar } from 'react-icons/fa';
 
 interface WorkoutCardProps {
@@ -11,13 +12,15 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
         <div>
             <div className="card w-auto bg-[#15171D] shadow-md rounded-2xl">
                 <figure>
-                    <Image
-                        className='w-full h-auto'
-                        src={workout.image}
-                        height={350}
-                        width={450}
-                        loading='eager'
-                        alt="Workout" />
+                    <Link href={`/exercise/${workout.id}`}>
+                        <Image
+                            className='w-full h-auto'
+                            src={workout.image}
+                            height={350}
+                            width={450}
+                            loading='eager'
+                            alt="Workout" />
+                    </Link>
                 </figure>
                 <div className="card-body">
                     <div className="card-actions justify-start">
