@@ -1,6 +1,6 @@
 import WorkoutDetails from '@/components/common/workoutdetails';
-import { getData } from '@/components/workoutData' ;
-import { IWorkout } from '@/components/workouttype';
+import { getData } from '@/workoutData' ;
+import { IWorkout } from '@/workouttype';
 
 
 

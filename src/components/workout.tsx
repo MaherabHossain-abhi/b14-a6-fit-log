@@ -1,5 +1,5 @@
-import { getData } from './workoutData';
-import { IWorkout } from './workouttype';
+import { getData } from '../workoutData';
+import { IWorkout } from '../workouttype';
 import WorkoutCard from './workoutcard';
 
 

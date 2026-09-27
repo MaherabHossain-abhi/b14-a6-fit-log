@@ -1,5 +1,6 @@
-import { IWorkout } from "../workouttype";
+import { IWorkout } from "@/workouttype";
 import Image from "next/image";
+import TodayButton from "@/components/todaybutton";
 
 interface WorkoutDetailsProp {
     workout: IWorkout
@@ -88,9 +89,7 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProp) => {
                     </ol>
                     <div className="mt-3 flex flex-col gap-3 sm:flex-row">
 
-                        <button className="w-full rounded-lg bg-[#C2F800] px-6 py-3 text-sm font-bold text-black sm:w-auto">
-                            Add to today&apos;s plan
-                        </button>
+                        <TodayButton workout={workout} />
 
                         <button className="w-full rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold sm:w-auto">
                             Save for later

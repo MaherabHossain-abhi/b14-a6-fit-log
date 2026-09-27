@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
-
+import WorkoutProvider from "@/context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,8 +23,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-[#0C0D10] text-white">
 
-        <Navbar />
-        {children}
+        <WorkoutProvider>
+          <Navbar />
+          {children}
+        </WorkoutProvider>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { IWorkout } from './workouttype';
+import { IWorkout } from '../workouttype';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaRegClock, FaRegStar } from 'react-icons/fa';
