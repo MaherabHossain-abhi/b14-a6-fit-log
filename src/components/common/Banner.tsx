@@ -12,7 +12,7 @@ const Banner = () => {
                     <p className='text-gray-400'>FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
                         into today&apos;s plan, and watch the week&apos;s work add up.</p>
                     <div className="">
-                        <button className='px-4 py-2 rounded-sm text-sm bg-[#C2F800] font-bold text-black'>BROWSE WORKOUTS</button>
+                       <a href="#library" className='px-4 py-2 rounded-sm text-sm bg-[#C2F800] font-bold text-black inline-block'>BROWSE WORKOUTS</a>
                     </div>
                 </div>
                 <div className=" md:w-100 pt-6 md:pt-0 flex justify-center md:justify-end object-cover">

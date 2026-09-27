@@ -24,7 +24,7 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
                 </figure>
                 <div className="card-body">
                     <div className="card-actions justify-start">
-                        {workout.muscleGroups.map((v, i) => {
+                        {workout?.muscleGroups?.map((v, i) => {
                             return (
                                 <div key={i} className="badge badge-outline bg-[#C2F800] text-black font-semibold">{v}</div>
                             )

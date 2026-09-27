@@ -11,7 +11,7 @@ interface MarkAsSavedProps{
 }
 
 const MarkAsSavedToday = ({workout}:MarkAsSavedProps) => {
-    const {addWorkout, setAddWorkout} = useContext(WorkoutContext);
+const { addWorkout = [], setAddWorkout } = useContext(WorkoutContext);
     const handleDelete = (e:IWorkout) => {
         const restCard = addWorkout.filter(work=> e.name != work.name)
         setAddWorkout(restCard);

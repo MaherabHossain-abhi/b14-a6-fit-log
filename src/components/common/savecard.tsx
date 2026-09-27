@@ -2,7 +2,6 @@ import { IWorkout } from '@/workouttype';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaRegClock, FaRegStar } from 'react-icons/fa';
-import { FiCheck } from 'react-icons/fi';
 import DeleteSaveButtonPage from '../DeleteButton/DeletesaveButtonPage';
 import MarkAsSaved from '../DeleteButton/MarkAsSaved';
 

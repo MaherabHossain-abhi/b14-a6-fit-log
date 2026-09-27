@@ -3,15 +3,17 @@ import { WorkoutContext } from '@/context';
 import { IWorkout } from '@/workouttype';
 import React, { useContext } from 'react';
 import { RxCross2 } from 'react-icons/rx';
+import { toast } from 'react-toastify';
 
 interface DeleteTodayButtonPageProps{
     workout: IWorkout;
 }
 
 const DeleteTodayButtonPage = ({workout}:DeleteTodayButtonPageProps) => {
-    const { addWorkout, addSave, setAddSave, setAddWorkout} = useContext(WorkoutContext);
+    const { addWorkout = [], setAddWorkout } = useContext(WorkoutContext);
     const handleDelete = (e:IWorkout) => {
-        const restCard = addWorkout.filter(work=> e.name != work.name)
+        const restCard = addWorkout.filter(work => work.id !== e.id);
+        toast.error("Removed from today's plan");
         setAddWorkout(restCard);
     }
     return (

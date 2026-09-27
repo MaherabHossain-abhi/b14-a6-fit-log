@@ -10,23 +10,23 @@ interface SaveButtonProps {
 }
 
 const SaveButtonPage = ({ workout }: SaveButtonProps) => {
-    const { addSave, setAddSave } = useContext(WorkoutContext);
+    const { addSave = [], setAddSave } = useContext(WorkoutContext);
 
     const handleAddSave = () => {
 
-        
-        const isClicked = addSave.some(val => val.id === workout.id);
+
+        const isClicked = (addSave || []).some(val => val.id === workout?.id);
         if (isClicked) {
             toast.error("Already Saved.")
         } else {
-            setAddSave([...addSave, workout]);
+            if (setAddSave) setAddSave([...addSave, workout]);
             toast.success("Saved successfully")
         }
     }
 
     return (
         <div>
-             <button
+            <button
                 onClick={() => handleAddSave()}
                 className="w-full rounded-lg border cursor-pointer border-gray-600 px-6 py-3 text-sm font-semibold sm:w-auto">
                 Save for later

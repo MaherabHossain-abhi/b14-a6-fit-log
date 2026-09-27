@@ -6,6 +6,7 @@ import WorkoutProvider from "@/context";
 import { Bounce, ToastContainer } from "react-toastify";
 import Footer from "@/components/common/Footer";
 
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],

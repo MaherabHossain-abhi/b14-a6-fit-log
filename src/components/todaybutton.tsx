@@ -2,7 +2,7 @@
 
 import { WorkoutContext } from '@/context';
 import { IWorkout } from '@/workouttype';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
 
 interface TodayButtonProps {
@@ -13,8 +13,7 @@ const TodayButton = ({ workout }: TodayButtonProps) => {
     const { addWorkout = [], setAddWorkout } = useContext(WorkoutContext);
 
     const handleAddToday = () => {
-        const isClicked = addWorkout.some((val) => val.id === workout.id);
-
+        const isClicked = (addWorkout || []).some((val: IWorkout) => val.id === workout?.id);
         if (isClicked) {
             toast.error("Already in your Plan.");
         } else {

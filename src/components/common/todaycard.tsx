@@ -1,4 +1,5 @@
 import { IWorkout } from '@/workouttype';
+import Link from 'next/link';
 import Image from 'next/image';
 import { FaRegClock, FaRegStar } from 'react-icons/fa';
 import DeleteTodayButtonPage from '../DeleteButton/DeleteTodayButton';
@@ -64,11 +65,14 @@ const TodayCardPage = ({ workout }: TodayCardPageProps) => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 items-center w-full md:w-auto">
-                <button className="w-full sm:w-auto rounded-4xl border border-gray-600 px-4 py-2 cursor-pointer text-xs md:text-sm font-semibold">
-                    View Details
-                </button>
-                <MarkAsSavedToday workout={workout}/>
-                <DeleteTodayButtonPage workout={workout}/>
+                <Link href={`/exercise/${workout.id}`}>
+                    <button className="w-full sm:w-auto rounded-4xl border border-gray-600 px-4 py-2 cursor-pointer text-xs md:text-sm font-semibold">
+                        View Details
+                    </button>
+                </Link>
+
+                <MarkAsSavedToday workout={workout} />
+                <DeleteTodayButtonPage workout={workout} />
             </div>
         </div>
     );

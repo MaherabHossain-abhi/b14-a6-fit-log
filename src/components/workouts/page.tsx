@@ -1,10 +1,10 @@
-import React from 'react';
+import Banner from '@/components/common/Banner';
 
 const WorkoutsPage = () => {
     return (
-        <div>
-            Workouts Page
-        </div>
+        <main className="container mx-auto max-w-280 px-4">
+            <Banner />
+        </main>
     );
 };
 

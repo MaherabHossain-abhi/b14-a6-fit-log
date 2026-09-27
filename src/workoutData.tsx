@@ -1,4 +1,6 @@
-export const getData = async () => {
+import { IWorkout } from './workouttype';
+
+export const getData = async (): Promise<IWorkout[]> => {
   try {
     const res = await fetch(`https://api.abcz.workers.dev/api/fitlog`);
     if (!res.ok) throw new Error();

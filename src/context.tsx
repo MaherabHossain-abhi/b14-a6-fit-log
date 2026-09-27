@@ -12,12 +12,12 @@ interface IWorkoutContext {
 }
 
 export const WorkoutContext = createContext<IWorkoutContext>({
- addWorkout: [],
+    addWorkout: [],
     setAddWorkout: () => { },
     addSave: [],
     setAddSave: () => { },
     activeTab: "today",
-    setActiveTab: () => {},
+    setActiveTab: () => { },
 });
 
 const WorkoutProvider = ({ children }: { children: React.ReactNode }) => {
@@ -34,11 +34,11 @@ const WorkoutProvider = ({ children }: { children: React.ReactNode }) => {
         setActiveTab
     }
     return (
-        <WorkoutContext value={sharedData}>
+        <WorkoutContext.Provider value={sharedData}>
             {children}
-        </WorkoutContext>
+        </WorkoutContext.Provider>
     );
 };
 
 
-    export default WorkoutProvider;
+export default WorkoutProvider;

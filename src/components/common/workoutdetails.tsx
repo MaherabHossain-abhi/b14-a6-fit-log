@@ -23,7 +23,7 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProp) => {
                     <h1 className='text-2xl sm:text-4xl font-bold'>{workout.name}</h1>
                     <p className='text-gray-400'>{workout.description}</p>
                     <div className="flex gap-2 justify-start item-center">
-                        {workout.muscleGroups.map((v, i) => {
+                        {workout?.muscleGroups?.map((v, i) => {
                             return (
                                 <div key={i} className="badge badge-outline bg-[#C2F800] text-black font-semibold">{v}</div>
                             )
@@ -75,7 +75,7 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProp) => {
                     </div>
                     <h1 className='text-3xl font-bold'>Instructions</h1>
                     <ol className="space-y-1 text-gray-400">
-                        {workout.instructions.map((instruction, index) => (
+                        {workout?.instructions?.map((instruction, index) => (
                             <li
                                 key={index}
                                 className="flex gap-3 "
