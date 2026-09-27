@@ -1,24 +1,25 @@
 import { IWorkout } from "@/workouttype";
 import Image from "next/image";
 import TodayButton from "@/components/todaybutton";
+import SaveButtonPage from "@/components/savebutton";
 
 interface WorkoutDetailsProp {
     workout: IWorkout
 }
 
-const WorkoutDetails = ({ workout }:WorkoutDetailsProp) => {
+const WorkoutDetails = ({ workout }: WorkoutDetailsProp) => {
     return (
         <div className="flex justify-center items-center container mx-auto max-w-280">
-            <div className="card lg:card-side shadow-sm items-start">
-            <figure>
-                <Image className='w-180 h-auto'
-                    src={workout.image}
-                    height={600}
-                    width={350}
-                    loading='eager'
-                    alt="Workout" />
-            </figure>
-            <div className="card px-4 space-y-2">
+         <div className="card gap-6 lg:card-side shadow-sm items-start p-4 md:p-0">
+                <figure>
+                    <Image className='w-180 h-auto'
+                        src={workout.image}
+                        height={600}
+                        width={350}
+                        loading='eager'
+                        alt="Workout" />
+                </figure>
+                <div className="card space-y-2">
                     <h1 className='text-2xl sm:text-4xl font-bold'>{workout.name}</h1>
                     <p className='text-gray-400'>{workout.description}</p>
                     <div className="flex gap-2 justify-start item-center">
@@ -89,18 +90,17 @@ const WorkoutDetails = ({ workout }:WorkoutDetailsProp) => {
                     </ol>
                     <div className="mt-3 flex flex-col gap-3 sm:flex-row">
 
-  <TodayButton workout={workout}/>
+    <TodayButton workout={workout} />
 
-                        <button className="w-full rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold sm:w-auto">
-                            Save for later
-                        </button>
+     <SaveButtonPage workout={workout}/>
 
                     </div>
                 </div>
             </div>
         </div>
 
-    );
+  );
 };
+
 
 export default WorkoutDetails;
