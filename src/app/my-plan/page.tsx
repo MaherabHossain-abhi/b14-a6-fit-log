@@ -1,8 +1,13 @@
 'use client'
-
+import TodayCardPage from "@/components/common/todaycard";
+import { WorkoutContext } from "@/context";
+import { useContext } from "react";
+import { DiVim } from "react-icons/di";
 
 
 const MyPlan = () => {
+    const { addWorkout, setAddWorkout } = useContext(WorkoutContext);
+
     return (
         <div className='container mx-auto max-w-280 '>
             <div className="my-5">
@@ -34,23 +39,33 @@ const MyPlan = () => {
                     defaultChecked
                 />
                 <div className="tab-content p-6 md:p-10">
-                    <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 bg-white/5 px-6 py-14 text-center">
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V5a1 1 0 011-1h6a1 1 0 011 1v2m-9 0h10a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2z" />
-                            </svg>
+                    {addWorkout.length <= 0 ?
+                        <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 bg-white/5 px-6 py-14 text-center">
+                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V5a1 1 0 011-1h6a1 1 0 011 1v2m-9 0h10a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2z" />
+                                </svg>
+                            </div>
+                            <div className="space-y-1">
+                                <h2 className="text-xl font-semibold">No workout planned today</h2>
+                                <p className="mx-auto max-w-xs text-sm text-white/60">
+                                    Pick a lift from the library to build today&apos;s session.
+                                </p>
+                            </div>
+                            <button className="btn btn-primary rounded-full px-6">Build today&apos;s plan</button>
+                        </div> :
+                        <div className="rounded-2xl border border-dashed border-white/15 bg-white/5 px-6 py-14 space-y-3">
+                            {
+                                addWorkout.map((workout, ind) => {
+                                    return (
+                                        <TodayCardPage key={ind} workout={workout} />
+                                    )
+                                })
+                            }
                         </div>
-                        <div className="space-y-1">
-                            <h2 className="text-xl font-semibold">No workout planned today</h2>
-                            <p className="mx-auto max-w-xs text-sm text-white/60">
-                                Pick a lift from the library to build today&apos;s session.
-                            </p>
-                        </div>
-                        <button className="btn btn-primary rounded-full px-6">Build today&apos;s plan</button>
-                    </div>
+                    }
                 </div>
 
-                {/* Tab 2: Saved */}
                 <input
                     type="radio"
                     name="my_tabs_2"
@@ -77,5 +92,3 @@ const MyPlan = () => {
         </div>
     );
 };
-
-export default MyPlan;
