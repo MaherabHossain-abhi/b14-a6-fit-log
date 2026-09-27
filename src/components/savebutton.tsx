@@ -3,6 +3,7 @@
 import { WorkoutContext } from "@/context";
 import { IWorkout } from "@/workouttype";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 interface SaveButtonProps {
     workout: IWorkout;
@@ -11,27 +12,24 @@ interface SaveButtonProps {
 const SaveButtonPage = ({ workout }: SaveButtonProps) => {
     const { addSave, setAddSave } = useContext(WorkoutContext);
 
-    const isSaved = addSave?.some((item) => item.id === workout.id);
+    const handleAddSave = () => {
 
-    const handleToggleSave = () => {
-        if (isSaved) {
-            setAddSave(addSave.filter((item) => item.id !== workout.id));
+        
+        const isClicked = addSave.some(val => val.id === workout.id);
+        if (isClicked) {
+            toast.error("Already Saved.")
         } else {
             setAddSave([...addSave, workout]);
+            toast.success("Saved successfully")
         }
-    };
+    }
 
     return (
         <div>
-            <button
-                onClick={handleToggleSave}
-                className={`w-full rounded-lg border px-6 py-3 text-sm font-semibold transition-all sm:w-auto ${
-                    isSaved
-                        ? "border-[#C2F800] bg-[#C2F800] text-black"
-                        : "border-gray-600 hover:border-gray-400"
-                }`}
-            >
-                {isSaved ? "Saved ✓" : "Save for later"}
+             <button
+                onClick={() => handleAddSave()}
+                className="w-full rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold sm:w-auto">
+                Save for later
             </button>
         </div>
     );

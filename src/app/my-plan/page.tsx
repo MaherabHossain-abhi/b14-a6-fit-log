@@ -3,17 +3,17 @@
 import SaveCard from "@/components/common/savecard";
 import TodayCardPage from "@/components/common/todaycard";
 import { WorkoutContext } from "@/context";
-import { useContext,  } from "react";
+import { useContext, } from "react";
 
 
 const MyPlan = () => {
-    const { addWorkout, activeTab, setActiveTab , addSave} = useContext(WorkoutContext);
+    const { addWorkout, activeTab, setActiveTab, addSave } = useContext(WorkoutContext);
 
 
-     const currentList = activeTab === "today" ? addWorkout : addSave;
+    const currentList = activeTab === "today" ? addWorkout : addSave;
     const totalExercises = currentList.length;
-    const totalMinutes = currentList.reduce((sum, w)=> sum+w.duration, 0)
-    const totalCalories = currentList.reduce((sum, w)=> sum+w.caloriesBurned, 0)
+    const totalMinutes = currentList.reduce((sum, w) => sum + w.duration, 0)
+    const totalCalories = currentList.reduce((sum, w) => sum + w.caloriesBurned, 0)
     return (
         <div className='container mx-auto max-w-280 p-4 md:p-0'>
             <div className="my-5 text-center md:text-left">
@@ -60,8 +60,7 @@ const MyPlan = () => {
                                     Pick a lift from the library to build today&apos;s session.
                                 </p>
                             </div>
-                            <button className="btn btn-primary rounded-full px-6">Build today&apos;s plan</button>
-                        </div> :
+                            <button className="btn btn-primary bg-[#C2F10D] font-bold text-black rounded-full px-6">Build today&apos;s plan</button>                        </div> :
                         <div className="rounded-2xl border border-dashed border-white/15 bg-white/5 px-6 py-14 space-y-3">
                             {
                                 addWorkout.map((workout, ind) => {
@@ -97,7 +96,7 @@ const MyPlan = () => {
                                     Browse the library and save a lift to get today moving.
                                 </p>
                             </div>
-                            <button className="btn btn-primary rounded-full px-6">Go to workouts</button>
+                            <button className="btn btn-primary rounded-full bg-[#C2F10D] font-bold text-black px-6">Go to workouts</button>
                         </div>
                         :
                         <div className="rounded-2xl border border-dashed border-white/15 bg-white/5 px-6 py-14 space-y-3">
