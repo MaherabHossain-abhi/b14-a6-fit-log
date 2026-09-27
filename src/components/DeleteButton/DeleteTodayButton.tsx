@@ -17,7 +17,8 @@ const DeleteTodayButtonPage = ({workout}:DeleteTodayButtonPageProps) => {
     return (
         <button
         onClick={()=> handleDelete(workout)} 
-        className="hidden md:flex md:text-lg cursor-pointer"><RxCross2/></button>
+        className="flex text-lg cursor-pointer"><RxCross2/>
+        </button>
     );
 };
 

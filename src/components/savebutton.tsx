@@ -28,7 +28,7 @@ const SaveButtonPage = ({ workout }: SaveButtonProps) => {
         <div>
              <button
                 onClick={() => handleAddSave()}
-                className="w-full rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold sm:w-auto">
+                className="w-full rounded-lg border cursor-pointer border-gray-600 px-6 py-3 text-sm font-semibold sm:w-auto">
                 Save for later
             </button>
         </div>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaRegClock, FaRegStar } from 'react-icons/fa';
 import { FiCheck } from 'react-icons/fi';
 import DeleteSaveButtonPage from '../DeleteButton/DeletesaveButtonPage';
+import MarkAsSaved from '../DeleteButton/MarkAsSaved';
 
 interface SaveCardProps {
     workout: IWorkout;
@@ -70,9 +71,7 @@ const SaveCard = ({ workout }: SaveCardProps) => {
                         View Details
                     </button>
                 </Link>
-                <button className="flex items-center justify-center gap-1 w-full sm:w-auto rounded-4xl cursor-pointer bg-[#C2F800] px-4 py-2 text-xs md:text-sm font-bold text-black">
-                    <FiCheck className="hidden md:flex md:text-lg" /> Mark as Done
-                </button>
+                <MarkAsSaved workout={workout} />
                 <DeleteSaveButtonPage workout={workout} />
             </div>
         </div>

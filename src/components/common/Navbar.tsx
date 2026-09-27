@@ -18,8 +18,9 @@ const Navbar = () => {
 
     </>
     return (
-        <nav className='container mx-auto max-w-280'>
-            <div className="flex justify-between items-center py-8">
+        <nav className='sticky z-50 top-0 border-white/10 border bg-[#0C0D10]'>
+            <div className="container mx-auto max-w-280  ">
+                <div className="flex justify-between items-center py-6">
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -47,6 +48,7 @@ const Navbar = () => {
                     <Link href={'/my-plan'}><button className='btn btn-sm sm:btn-md btn-neutral text-gray-300'>Saved<span className='border border-gray-300 p-1 w-7 rounded-full text-white font-semibold'>{totalExercises}</span></button></Link>
                 </div>
             </div>
+             </div>
         </nav >
     );
 };

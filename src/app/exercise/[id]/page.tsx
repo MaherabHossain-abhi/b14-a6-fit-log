@@ -1,15 +1,19 @@
 import WorkoutDetails from '@/components/common/workoutdetails';
-import { getData } from '@/workoutData' ;
+import { getData } from '@/workoutData';
 import { IWorkout } from '@/workouttype';
-
-
+import { notFound } from 'next/navigation';
 
 const WorkoutDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     const { id } = await params;
     const workoutData = await getData();
-    const workout: IWorkout = workoutData.find((work: IWorkout) => String(work.id) === String(id));
+    const workout = workoutData?.find((work: IWorkout) => String(work.id) === String(id));
+
+    if (!workout) {
+        notFound();
+    }
+
     return (
-        <WorkoutDetails key={workout.id} workout={workout}/>
+        <WorkoutDetails workout={workout} />
     );
 };
 
